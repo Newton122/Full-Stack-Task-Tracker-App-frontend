@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import TodoForm from '../components/TodoForm';
@@ -25,12 +25,7 @@ export default function Dashboard({ onLogout }) {
     fetchTodos();
   }, []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    applyFilters();
-  }, [todos, filterStatus, searchTerm, filters]);
-
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     let result = todos;
 
     // Search filter
@@ -86,7 +81,11 @@ export default function Dashboard({ onLogout }) {
     }
 
     setFilteredTodos(result);
-  };
+  }, [todos, filterStatus, searchTerm, filters]);
+
+  useEffect(() => {
+    applyFilters();
+  }, [applyFilters]);
 
   const fetchTodos = async () => {
     setLoading(true);
