@@ -164,15 +164,15 @@ export default function Dashboard({ onLogout }) {
   return (
     <div className={`min-h-screen transition-all ${isDark ? 'bg-gray-900' : 'bg-gradient-to-b from-brown-dark via-brown-light to-brown-lighter'} p-4 font-inter relative overflow-hidden`}>
       {/* Navigation */}
-      <nav className={`${isDark ? 'bg-gray-800 border-gray-700' : 'bg-opacity-10 bg-gold border-opacity-25 border-gold'} backdrop-blur-md rounded-lg px-3 sm:px-[22px] py-2 sm:py-[14px] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 mb-6 shadow-lg border animate-slide-down transition-all`}>
-        <div className="flex items-center gap-2 sm:gap-5">
-          <h1 className={`text-lg sm:text-2xl font-bold m-0 drop-shadow-md font-space-grotesk ${isDark ? 'text-gold' : 'text-gold'}`}>🎲 TaskMind</h1>
-          <div className={`text-xs sm:text-sm font-medium font-inter hidden sm:block ${isDark ? 'text-gray-300' : 'text-gold-dark'}`}>👤 {user?.username || user?.email}</div>
+      <nav className={`${isDark ? 'bg-gray-800 border-gray-700' : 'bg-opacity-10 bg-gold border-opacity-25 border-gold'} backdrop-blur-md rounded-lg px-2 sm:px-4 py-1.5 sm:py-2 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6 shadow-lg border animate-slide-down transition-all`}>
+        <div className="flex items-center gap-1.5 sm:gap-3">
+          <h1 className={`text-base sm:text-lg font-bold m-0 drop-shadow-md font-space-grotesk ${isDark ? 'text-gold' : 'text-gold'}`}>🎲 TaskMind</h1>
+          <div className={`text-xs sm:text-xs font-medium font-inter hidden sm:block ${isDark ? 'text-gray-300' : 'text-gold-dark'}`}>👤 {user?.username || user?.email}</div>
         </div>
-        <div className="flex gap-1 sm:gap-2.5 w-full sm:w-auto flex-wrap sm:flex-nowrap">
+        <div className="flex gap-0.5 sm:gap-1.5 w-full sm:w-auto flex-wrap sm:flex-nowrap">
           <button
             onClick={toggleTheme}
-            className={`px-2 sm:px-4 py-1.5 sm:py-2 border-[1.5px] rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 flex-1 sm:flex-none justify-center ${
+            className={`px-1.5 sm:px-2.5 py-1 sm:py-1.5 border-[1px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-none justify-center ${
               isDark
                 ? 'border-gold border-opacity-40 bg-opacity-5 bg-gold text-gold hover:bg-opacity-15'
                 : 'border-opacity-40 border-gold bg-opacity-5 bg-gold text-gold hover:bg-opacity-15 shadow-sm'
@@ -183,25 +183,24 @@ export default function Dashboard({ onLogout }) {
           </button>
           <button
             onClick={() => setShowStats(!showStats)}
-            className={`px-2 sm:px-4 py-1.5 sm:py-2 border-[1.5px] rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 flex-1 sm:flex-none justify-center ${
+            className={`px-1.5 sm:px-2.5 py-1 sm:py-1.5 border-[1px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-none justify-center ${
               isDark
                 ? 'border-gold border-opacity-40 bg-opacity-5 bg-gold text-gold hover:bg-opacity-15'
                 : 'border-opacity-40 border-gold bg-opacity-5 bg-gold text-gold hover:bg-opacity-15 shadow-sm'
             } hover:-translate-y-0.5 hover:shadow-lg`}
           >
-            <span className="text-base sm:text-lg">📊</span>
-            <span className="hidden sm:inline">{showStats ? 'Hide' : 'Show'} Stats</span>
-            <span className="sm:hidden">{showStats ? 'Hide' : 'Show'}</span>
+            <span className="text-sm sm:text-sm">📊</span>
+            <span className="hidden sm:inline">Stats</span>
           </button>
           <button
             onClick={handleLogout}
-            className={`px-2 sm:px-4 py-1.5 sm:py-2 border-[1.5px] rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 flex-1 sm:flex-none justify-center ${
+            className={`px-1.5 sm:px-2.5 py-1 sm:py-1.5 border-[1px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-none justify-center ${
               isDark
                 ? 'border-red-500 border-opacity-40 bg-opacity-5 bg-red-500 text-red-400 hover:bg-opacity-15 hover:border-opacity-60'
                 : 'border-opacity-40 border-gold bg-opacity-5 bg-gold text-gold hover:bg-red-500 hover:bg-opacity-15 hover:border-red-500 hover:border-opacity-50 hover:text-red-500 shadow-sm'
             } hover:-translate-y-0.5 hover:shadow-lg`}
           >
-            <span className="text-base sm:text-lg">🚪</span>
+            <span className="text-sm sm:text-sm">🚪</span>
             <span className="hidden sm:inline">Logout</span>
           </button>
         </div>
@@ -209,7 +208,7 @@ export default function Dashboard({ onLogout }) {
 
       {/* Stats */}
       {showStats && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-6 justify-center animate-slide-up">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 mb-4 sm:mb-6 justify-center animate-slide-up\">
           {[
             { icon: '📋', value: stats.total, label: 'Total Tasks' },
             { icon: '✓', value: stats.completed, label: 'Completed' },
@@ -218,21 +217,21 @@ export default function Dashboard({ onLogout }) {
           ].map((stat, idx) => (
             <div
               key={idx}
-              className={`rounded-lg p-3 shadow-md border flex flex-col justify-center items-center aspect-square cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+              className={`rounded-md p-1.5 sm:p-2.5 shadow-sm border flex flex-col justify-center items-center aspect-square cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
                 isDark
                   ? 'bg-gray-800 border-opacity-20 border-gold hover:border-opacity-40'
                   : 'bg-gradient-to-br from-brown-light to-brown-lighter border-opacity-20 border-gold hover:border-opacity-40'
               }`}
             >
-              <div className="text-2xl sm:text-3xl mb-1">{stat.icon}</div>
-              <div className={`text-sm sm:text-base font-bold drop-shadow-sm font-inter ${isDark ? 'text-gold' : 'text-gold'}`}>{stat.value}</div>
-              <div className={`text-xs font-medium font-inter text-center line-clamp-2 leading-tight ${isDark ? 'text-gray-400' : 'text-gold-darker'}`}>{stat.label}</div>
+              <div className="text-lg sm:text-2xl mb-0.5">{stat.icon}</div>
+              <div className={`text-xs sm:text-sm font-bold drop-shadow-sm font-inter ${isDark ? 'text-gold' : 'text-gold'}`}>{stat.value}</div>
+              <div className={`text-xs sm:text-xs font-medium font-inter text-center line-clamp-2 leading-tight ${isDark ? 'text-gray-400' : 'text-gold-darker'}`}>{stat.label}</div>
             </div>
           ))}
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4\">
         {/* Sidebar */}
         {showSidebar && (
           <div className="md:col-span-1">
