@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+> ⚠️ **Environment variable**
+> The front‑end expects `REACT_APP_API_URL` to be set to your backend's base URL (e.g. `https://taskmind-backend-wjsv.onrender.com`).
+> When running locally it defaults to `http://localhost:5000`.
+
 ## Available Scripts
 
 In the project directory, you can run:
