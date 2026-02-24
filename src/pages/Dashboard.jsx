@@ -169,46 +169,47 @@ export default function Dashboard({ onLogout }) {
           <h1 className={`text-base sm:text-lg font-bold m-0 drop-shadow-md font-space-grotesk ${isDark ? 'text-gold' : 'text-gold'}`}>🎲 TaskMind</h1>
           <div className={`text-xs sm:text-xs font-medium font-inter hidden sm:block ${isDark ? 'text-gray-300' : 'text-gold-dark'}`}>👤 {user?.username || user?.email}</div>
         </div>
-        <div className="flex gap-0 sm:gap-1.5 w-full sm:w-auto flex-wrap sm:flex-nowrap">
+        <div className="flex gap-0.5 sm:gap-1.5 w-full sm:w-auto flex-wrap sm:flex-nowrap">
           <button
             onClick={toggleTheme}
-            className={`px-1 sm:px-2.5 py-0.5 sm:py-1.5 border-[0.5px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0 sm:gap-1 flex-1 sm:flex-none justify-center ${
+            className={`px-1 sm:px-2.5 py-0.5 sm:py-1.5 border-[0.5px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-none justify-center ${
               isDark
                 ? 'border-gold border-opacity-40 bg-opacity-5 bg-gold text-gold hover:bg-opacity-15'
                 : 'border-opacity-40 border-gold bg-opacity-5 bg-gold text-gold hover:bg-opacity-15 shadow-sm'
             } hover:-translate-y-0.5 hover:shadow-lg`}
           >
             <span className="text-xs sm:text-base">{isDark ? '☀️' : '🌙'}</span>
-            <span className="hidden sm:inline">Theme</span>
+            <span className="text-xs">Theme</span>
           </button>
           <button
             onClick={() => setShowStats(!showStats)}
-            className={`px-1 sm:px-2.5 py-0.5 sm:py-1.5 border-[0.5px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0 sm:gap-1 flex-1 sm:flex-none justify-center ${
+            className={`px-1 sm:px-2.5 py-0.5 sm:py-1.5 border-[0.5px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-none justify-center ${
               isDark
                 ? 'border-gold border-opacity-40 bg-opacity-5 bg-gold text-gold hover:bg-opacity-15'
                 : 'border-opacity-40 border-gold bg-opacity-5 bg-gold text-gold hover:bg-opacity-15 shadow-sm'
             } hover:-translate-y-0.5 hover:shadow-lg`}
           >
             <span className="text-xs sm:text-sm">📊</span>
-            <span className="hidden sm:inline">Stats</span>
+            <span className="text-xs">Stats</span>
           </button>
           <button
             onClick={handleLogout}
-            className={`px-1 sm:px-2.5 py-0.5 sm:py-1.5 border-[0.5px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0 sm:gap-1 flex-1 sm:flex-none justify-center ${
+            className={`px-1 sm:px-2.5 py-0.5 sm:py-1.5 border-[0.5px] rounded text-xs sm:text-xs font-semibold transition-all duration-300 flex items-center gap-0.5 sm:gap-1 flex-1 sm:flex-none justify-center ${
               isDark
                 ? 'border-red-500 border-opacity-40 bg-opacity-5 bg-red-500 text-red-400 hover:bg-opacity-15 hover:border-opacity-60'
                 : 'border-opacity-40 border-gold bg-opacity-5 bg-gold text-gold hover:bg-red-500 hover:bg-opacity-15 hover:border-red-500 hover:border-opacity-50 hover:text-red-500 shadow-sm'
             } hover:-translate-y-0.5 hover:shadow-lg`}
           >
             <span className="text-xs sm:text-sm">🚪</span>
-            <span className="hidden sm:inline">Logout</span>
+            <span className="text-xs">Logout</span>
           </button>
         </div>
       </nav>
 
       {/* Stats */}
       {showStats && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2 mb-2 sm:mb-6 justify-center animate-slide-up\">
+        <div className="px-4 sm:px-0">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 mb-2 sm:mb-6 justify-center animate-slide-up">
           {[
             { icon: '📋', value: stats.total, label: 'Total Tasks' },
             { icon: '✓', value: stats.completed, label: 'Completed' },
@@ -228,6 +229,7 @@ export default function Dashboard({ onLogout }) {
               <div className={`text-xs sm:text-xs font-medium font-inter text-center line-clamp-2 leading-tight ${isDark ? 'text-gray-400' : 'text-gold-darker'}`}>{stat.label}</div>
             </div>
           ))}
+        </div>
         </div>
       )}
 
