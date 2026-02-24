@@ -208,7 +208,7 @@ export default function Dashboard({ onLogout }) {
 
       {/* Stats */}
       {showStats && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 mb-4 sm:mb-6 justify-center animate-slide-up\">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2 mb-2 sm:mb-6 justify-center animate-slide-up\">
           {[
             { icon: '📋', value: stats.total, label: 'Total Tasks' },
             { icon: '✓', value: stats.completed, label: 'Completed' },
@@ -217,13 +217,13 @@ export default function Dashboard({ onLogout }) {
           ].map((stat, idx) => (
             <div
               key={idx}
-              className={`rounded-md p-1.5 sm:p-2.5 shadow-sm border flex flex-col justify-center items-center aspect-square cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+              className={`rounded-md p-1 sm:p-2.5 shadow-sm border flex flex-col justify-center items-center aspect-square cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
                 isDark
                   ? 'bg-gray-800 border-opacity-20 border-gold hover:border-opacity-40'
                   : 'bg-gradient-to-br from-brown-light to-brown-lighter border-opacity-20 border-gold hover:border-opacity-40'
               }`}
             >
-              <div className="text-lg sm:text-2xl mb-0.5">{stat.icon}</div>
+              <div className="text-base sm:text-2xl mb-0">{stat.icon}</div>
               <div className={`text-xs sm:text-sm font-bold drop-shadow-sm font-inter ${isDark ? 'text-gold' : 'text-gold'}`}>{stat.value}</div>
               <div className={`text-xs sm:text-xs font-medium font-inter text-center line-clamp-2 leading-tight ${isDark ? 'text-gray-400' : 'text-gold-darker'}`}>{stat.label}</div>
             </div>
